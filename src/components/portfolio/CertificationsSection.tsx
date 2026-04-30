@@ -64,7 +64,7 @@ const certifications: Certification[] = [
     type: 'udemy',
   },
   {
-    title: 'HackerRank Angular (Intermediate)',
+    title: 'HackerRank React (Intermediate)',
     issuer: 'HackerRank',
     date: 'Aug 2025',
     type: 'hackerrank',

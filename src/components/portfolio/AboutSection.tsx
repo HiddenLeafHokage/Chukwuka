@@ -5,7 +5,7 @@ const highlights = [
   {
     icon: Code2,
     title: 'Frontend Development',
-    description: 'Building responsive, interactive UIs with Angular, React, and TypeScript',
+    description: 'Building responsive, interactive UIs with React, and TypeScript',
   },
   {
     icon: Server,

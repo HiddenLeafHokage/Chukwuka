@@ -35,15 +35,15 @@ const experiences: Experience[] = [
     location: 'Lagos, Nigeria',
     type: 'full-time',
     description: [
-      'Developed various modules for the Enterprise Credit Solution, including enhancements to the end-of-day process, repayment background service, and customization based on user requirements using C#, JavaScript, Angular, ASP.NET, and .NET Core.',
-      'Led the architecture and development of the front-end Angular project for a multi-tenant Cloud Core Banking solution, while also working extensively on the architecture and development of the backend with .NET Core, MySQL, MSSQL, and Azure Cloud.',
+      'Developed various modules for the Enterprise Credit Solution, including enhancements to the end-of-day process, repayment background service, and customization based on user requirements using C#, JavaScript, React, ASP.NET, and .NET Core.',
+      'Led the architecture and development of the front-end React project for a multi-tenant Cloud Core Banking solution, while also working extensively on the architecture and development of the backend with .NET Core, MySQL, MSSQL, and Azure Cloud.',
       'Supported the Credit Solution on production for multiple banks across Africa, ensuring smooth operations and resolving issues efficiently.',
       'Managed the deployment of the Cloud Core Banking solution on Azure Cloud and utilized Azure DevOps for continuous integration and deployment.',
       'Utilized various tools and technologies such as Node.js, IIS, and Azure to enhance the performance and scalability of solutions.',
-      'Integrated the frontend Angular application with Microsoft Msal.',
+      'Integrated the frontend React application with Microsoft Msal.',
       'Mentoring junior team members and training the Academy trainees on software development and DevOps.',
     ],
-    technologies: ['C#', '.NET Core', 'Angular', 'TypeScript', 'Azure', 'Azure DevOps', 'MySQL', 'MSSQL', 'Node.js', 'IIS', 'Microsoft Msal', 'SignalR'],
+    technologies: ['C#', '.NET Core', 'React', 'TypeScript', 'Azure', 'Azure DevOps', 'MySQL', 'MSSQL', 'Node.js', 'IIS', 'Microsoft Msal', 'SignalR'],
   },
   {
     id: 'Blueloop-trainee',
@@ -206,7 +206,7 @@ const ExperienceSection: React.FC = () => {
             </div>
             <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="w-4 h-4" />
-              Benin City, Nigeria
+              Ekpoma, Edo State, Nigeria
             </div>
           </div>
         </div>

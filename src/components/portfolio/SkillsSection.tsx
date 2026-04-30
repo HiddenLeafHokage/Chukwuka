@@ -6,6 +6,7 @@ const skills = [
   { name: 'JavaScript' },
   { name: 'TypeScript' },
   { name: 'SQL' },
+  { name: 'UNITY ' },
   { name: 'HTML' },
   { name: 'CSS' },
 ];

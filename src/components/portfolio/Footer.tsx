@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               </span>
             </button>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xs">
-              Full Stack Developer passionate about building scalable, high-performance web applications with .NET and Angular.
+              Full Stack Developer passionate about building scalable, high-performance web applications with .NET and React.
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">Technologies</h4>
             <ul className="space-y-2.5">
-              {['.NET Core', 'Angular', 'C#', 'TypeScript', 'Azure Cloud', 'SQL Server', 'Docker', 'Node.js'].map((tech) => (
+              {['.NET Core', 'React', 'C#', 'TypeScript', 'Azure Cloud', 'SQL Server', 'Docker', 'Node.js'].map((tech) => (
                 <li key={tech}>
                   <span className="text-sm text-muted-foreground">{tech}</span>
                 </li>

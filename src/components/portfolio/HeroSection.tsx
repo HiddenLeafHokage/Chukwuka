@@ -104,7 +104,7 @@ const HeroSection: React.FC = () => {
                 Contact Me
               </button>
               <a
-                href="/resume/Elvis%20Aghaulor%20CV.pdf"
+                href="/resume/SolomonChukwukaResume.pdf"
                 download="Solomon Chukwuka Resume.pdf"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-primary/40 bg-primary/5 text-primary font-semibold hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
               >
