@@ -5,74 +5,57 @@ type Certification = {
   title: string;
   issuer: string;
   date: string;
-  type: 'microsoft' | 'hackerrank' | 'udemy' | 'other';
+  type: 'microsoft' | 'hackerrank' | 'udemy' | 'coursera' | 'other';
+  url?: string;
+  inProgress?: boolean;
 };
 
 const certifications: Certification[] = [
   {
-    title: 'Microsoft Certified Azure Fundamentals',
-    issuer: 'Microsoft',
-    date: 'July 2020',
-    type: 'microsoft',
+    title: 'Microsoft Full Stack Developer (Professional Certificate)',
+    issuer: 'Microsoft · Coursera',
+    date: 'In Progress',
+    type: 'coursera',
+    inProgress: true,
   },
   {
-    title: 'HackerRank Certificate C# (Basic)',
-    issuer: 'HackerRank',
-    date: 'May 2021',
-    type: 'hackerrank',
+    title: 'Introduction to Programming with C#',
+    issuer: 'Microsoft · Coursera',
+    date: 'May 2026',
+    type: 'coursera',
+    url: 'https://coursera.org/share/e1ad4b80a6186930f8d50c70d84aeb1f',
   },
   {
-    title: 'HackerRank Certificate SQL (Basic)',
-    issuer: 'HackerRank',
-    date: 'Sep 2021',
-    type: 'hackerrank',
-  },
-  {
-    title: 'ASP.NET Core API: From Scratch to Master + Azure Deployment',
-    issuer: 'Udemy',
-    date: 'Nov 2025',
-    type: 'udemy',
-  },
-  {
-    title: 'C# 10 | Ultimate Guide - Beginner to Advanced | Master Class',
-    issuer: 'Udemy',
-    date: 'June 2024',
-    type: 'udemy',
+    title: 'Foundations of Coding Full-Stack',
+    issuer: 'Microsoft · Coursera',
+    date: 'Apr 2026',
+    type: 'coursera',
+    url: 'https://coursera.org/share/cbd1dbf8d5e883ff5e3a8c40a2e5e480',
   },
   {
     title: 'Foundational C# with Microsoft',
     issuer: 'Microsoft',
-    date: 'Oct 2024',
+    date: '2024',
     type: 'microsoft',
   },
   {
-    title: ' The Complete Full-Stack Web Development Bootcamp',
+    title: 'The Complete Full-Stack Web Development Bootcamp',
     issuer: 'Udemy',
-    date: 'November 2022',
+    date: '2022',
     type: 'udemy',
-  },
-  {
-    title: 'Advanced JavaScript in 2022',
-    issuer: 'Udemy',
-    date: 'May 2023',
-    type: 'udemy',
+    url: 'https://www.udemy.com/certificate/UC-606e13a4-64bf-448f-a0e5-1ef5850f3e76/',
   },
   {
     title: 'Understanding TypeScript',
     issuer: 'Udemy',
-    date: 'May 2024',
+    date: '2024',
     type: 'udemy',
-  },
-  {
-    title: 'HackerRank React (Intermediate)',
-    issuer: 'HackerRank',
-    date: 'Aug 2025',
-    type: 'hackerrank',
   },
 ];
 
 const issuerColors: Record<string, { bg: string; text: string; border: string }> = {
   microsoft: { bg: 'bg-blue-500/10', text: 'text-blue-500', border: 'border-blue-500/20' },
+  coursera: { bg: 'bg-indigo-500/10', text: 'text-indigo-500', border: 'border-indigo-500/20' },
   hackerrank: { bg: 'bg-emerald-500/10', text: 'text-emerald-500', border: 'border-emerald-500/20' },
   udemy: { bg: 'bg-purple-500/10', text: 'text-purple-500', border: 'border-purple-500/20' },
   other: { bg: 'bg-orange-500/10', text: 'text-orange-500', border: 'border-orange-500/20' },
@@ -118,7 +101,7 @@ const CertificationsSection: React.FC = () => {
           {[
             { key: 'all', label: 'All' },
             { key: 'microsoft', label: 'Microsoft' },
-            { key: 'hackerrank', label: 'HackerRank' },
+            { key: 'coursera', label: 'Coursera' },
             { key: 'udemy', label: 'Udemy' },
           ].map((f) => (
             <button
@@ -161,14 +144,21 @@ const CertificationsSection: React.FC = () => {
                 </h3>
 
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <span className={`flex items-center gap-1.5 text-xs ${cert.inProgress ? 'text-emerald-500 font-medium' : 'text-muted-foreground'}`}>
                     <Calendar className="w-3.5 h-3.5" />
                     {cert.date}
                   </span>
-                  <button className="text-xs text-primary hover:underline flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ExternalLink className="w-3 h-3" />
-                    View
-                  </button>
+                  {cert.url && (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-primary hover:underline flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      View
+                    </a>
+                  )}
                 </div>
               </div>
             );

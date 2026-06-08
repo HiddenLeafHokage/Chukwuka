@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
-import { Briefcase, ChevronDown, ChevronUp, MapPin, Calendar, Building2 } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Briefcase,
+  ChevronDown,
+  ChevronUp,
+  MapPin,
+  Calendar,
+  Building2,
+} from "lucide-react";
 
 type Experience = {
   id: string;
@@ -7,64 +14,95 @@ type Experience = {
   role: string;
   period: string;
   location: string;
-  type: 'full-time' | 'trainee';
+  type: "full-time" | "trainee" | "nysc" | "contract";
   description: string[];
   technologies: string[];
 };
 
 const experiences: Experience[] = [
   {
-    id: 'sterling',
-    company: 'SterlingPRO Business Applications',
-    role: 'Software Developer',
-    period: 'Sep 2025 - Present',
-    location: 'Lagos, Nigeria',
-    type: 'full-time',
+    id: "sterlingpro",
+    company: "SterlingPRO Business Applications",
+    role: "Software Engineer",
+    period: "Sep 2025 - Present",
+    location: "Lagos, Nigeria",
+    type: "full-time",
     description: [
-      'Upgrade of legacy ASP.Net MVC ATM Monitoring application to .Net 8 using Entity Framework Core and Dapper. SignalR was used for real-time data monitoring.',
-      'Fixed bugs and added features to the ATM keys generation application.',
-      'Fixed bugs and added features to the legacy ATM Monitoring application.',
+      "Build and maintain backend systems across the financial services domain     card transaction monitoring, settlement and reconciliation, ATM monitoring, POS/teller and cross-border payment workflows     using C#, .NET 8 and clean architecture.",
+      "Developed a card settlement and reconciliation platform on .NET 8 with a containerised (Docker), layered clean-architecture design.",
+      "Built and modernised real-time ATM and transaction monitoring applications using SignalR, Entity Framework Core and Dapper for live status tracking and high-throughput data access.",
+      "Worked on biometric onboarding and merchant-facing dashboard applications with React and TypeScript front-ends backed by .NET APIs.",
+      "Implemented secure key-management and encryption modules (including ATM key handling) within a regulated financial environment.",
+      "Diagnosed and resolved production issues, improving the reliability and stability of mission-critical financial systems.",
     ],
-    technologies: ['.NET 8', 'Entity Framework Core', 'Dapper', 'SignalR', 'ASP.NET MVC'],
+    technologies: [
+      "C#",
+      ".NET 8",
+      "Entity Framework Core",
+      "Dapper",
+      "SignalR",
+      "React",
+      "TypeScript",
+      "SQL Server",
+      "Docker",
+      "Clean Architecture",
+    ],
   },
   {
-    id: 'fintrak-dev',
-    company: 'FinTrak Software',
-    role: 'Full Stack Developer',
-    period: 'Oct 2020 - Aug 2025',
-    location: 'Lagos, Nigeria',
-    type: 'full-time',
+    id: "igh",
+    company: "Institute of Genomics and Global Health (IGH)",
+    role: "VR Developer & Software Engineer",
+    period: "2023 - 2025",
+    location: "Lagos, Nigeria",
+    type: "full-time",
     description: [
-      'Developed various modules for the Enterprise Credit Solution, including enhancements to the end-of-day process, repayment background service, and customization based on user requirements using C#, JavaScript, React, ASP.NET, and .NET Core.',
-      'Led the architecture and development of the front-end React project for a multi-tenant Cloud Core Banking solution, while also working extensively on the architecture and development of the backend with .NET Core, MySQL, MSSQL, and Azure Cloud.',
-      'Supported the Credit Solution on production for multiple banks across Africa, ensuring smooth operations and resolving issues efficiently.',
-      'Managed the deployment of the Cloud Core Banking solution on Azure Cloud and utilized Azure DevOps for continuous integration and deployment.',
-      'Utilized various tools and technologies such as Node.js, IIS, and Azure to enhance the performance and scalability of solutions.',
-      'Integrated the frontend React application with Microsoft Msal.',
-      'Mentoring junior team members and training the Academy trainees on software development and DevOps.',
+      "Designed and developed VR educational applications with Unity 6 and Oculus Quest 3, enabling interactive exploration of DNA, RNA, proteins and virus structures (e.g. HIV, SARS-CoV-2).",
+      "Led development of the official Hackathon website, supporting registration, team selection and project tracking across biology, C#/Unity and 3D-design tracks.",
+      "Built interactive virtual laboratory scenes with XR grab interactables, molecule selection, teleport anchors and voiceover guidance to simulate real-world learning environments.",
+      "Wrote custom C# scripts for user interaction, animation and game-like experiences within VR.",
+      "Mentored students on using VR for molecular biology and documented weekly IT/VR department progress for leadership.",
     ],
-    technologies: ['C#', '.NET Core', 'React', 'TypeScript', 'Azure', 'Azure DevOps', 'MySQL', 'MSSQL', 'Node.js', 'IIS', 'Microsoft Msal', 'SignalR'],
+    technologies: [
+      "Unity 6",
+      "C#",
+      "Oculus Quest 3",
+      "XR Interaction Toolkit",
+      "React",
+      "3D Visualization",
+    ],
   },
   {
-    id: 'Blueloop-trainee',
-    company: 'Blueloop Software',
-    role: 'Graduate Trainee',
-    period: 'Dec 2023 - Nov 2024',
-    location: 'Lagos, Nigeria',
-    type: 'trainee',
+    id: "nysc",
+    company: "BlueLoop",
+    role: "Full-Stack / Backend Developer",
+    period: "2022 - 2023",
+    location: "Nigeria",
+    type: "nysc",
     description: [
-      'Received training in diverse software engineering technologies and applied these skills in the development and support of a Credit Management solution for banks across several African countries.',
-      'Assisted in troubleshooting, maintaining, and enhancing the Credit Management solution, ensuring smooth functionality and meeting the specific needs of clients in the banking sector.',
+      "Contributed to transitioning a backend codebase from Express.js to NestJS, improving modularity, structure and scalability.",
+      "Designed and implemented APIs for user authentication and login, with robust security and data-protection measures.",
+      "Managed and queried PostgreSQL databases for efficient, reliable data storage and retrieval.",
+      "Collaborated using Gitpushing, forking, reviewing and merging codeand took part in code reviews to uphold quality standards.",
+      "Engaged in continuous learning to stay current with emerging backend technologies.",
     ],
-    technologies: ['C#', '.NET', 'SQL Server', 'React', 'JavaScript'],
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "TypeScript",
+      "JavaScript",
+      "PostgreSQL",
+      "Git",
+      "REST APIs",
+    ],
   },
 ];
 
 const ExperienceSection: React.FC = () => {
-  const [expandedId, setExpandedId] = useState<string>('fintrak-dev');
+  const [expandedId, setExpandedId] = useState<string>("sterlingpro");
 
   const toggleExpand = (id: string) => {
-    setExpandedId(expandedId === id ? '' : id);
+    setExpandedId(expandedId === id ? "" : id);
   };
 
   return (
@@ -78,10 +116,13 @@ const ExperienceSection: React.FC = () => {
             Work Experience
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Professional <span className="dark:text-gradient text-gradient-light">Journey</span>
+            Professional{" "}
+            <span className="dark:text-gradient text-gradient-light">
+              Journey
+            </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Building enterprise solutions across fintech and banking sectors
+            Building software across fintech, research/VR, and the web
           </p>
         </div>
 
@@ -97,18 +138,20 @@ const ExperienceSection: React.FC = () => {
                 return (
                   <div key={exp.id} className="relative pl-16 lg:pl-20">
                     {/* Timeline dot */}
-                    <div className={`absolute left-4 lg:left-6 top-6 w-4 h-4 rounded-full border-2 transition-colors duration-300 ${
-                      index === 0
-                        ? 'bg-primary border-primary shadow-lg shadow-primary/30'
-                        : 'bg-card border-border'
-                    }`} />
+                    <div
+                      className={`absolute left-4 lg:left-6 top-6 w-4 h-4 rounded-full border-2 transition-colors duration-300 ${
+                        index === 0
+                          ? "bg-primary border-primary shadow-lg shadow-primary/30"
+                          : "bg-card border-border"
+                      }`}
+                    />
 
                     {/* Card */}
                     <div
                       className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                         isExpanded
-                          ? 'border-primary/30 bg-card shadow-lg'
-                          : 'border-border bg-card hover:border-primary/20'
+                          ? "border-primary/30 bg-card shadow-lg"
+                          : "border-border bg-card hover:border-primary/20"
                       }`}
                     >
                       {/* Header - clickable */}
@@ -118,15 +161,25 @@ const ExperienceSection: React.FC = () => {
                       >
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider ${
-                              index === 0
-                                ? 'bg-emerald-500/10 text-emerald-500'
-                                : 'bg-muted text-muted-foreground'
-                            }`}>
-                              {index === 0 ? 'Current' : exp.type === 'trainee' ? 'Trainee' : 'Previous'}
+                            <span
+                              className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider ${
+                                index === 0
+                                  ? "bg-emerald-500/10 text-emerald-500"
+                                  : "bg-muted text-muted-foreground"
+                              }`}
+                            >
+                              {index === 0
+                                ? "Current"
+                                : exp.type === "nysc"
+                                  ? "NYSC"
+                                  : exp.type === "trainee"
+                                    ? "Trainee"
+                                    : "Previous"}
                             </span>
                           </div>
-                          <h3 className="text-lg lg:text-xl font-bold text-foreground">{exp.role}</h3>
+                          <h3 className="text-lg lg:text-xl font-bold text-foreground">
+                            {exp.role}
+                          </h3>
                           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
                             <span className="flex items-center gap-1.5">
                               <Building2 className="w-3.5 h-3.5 text-primary" />
@@ -156,14 +209,19 @@ const ExperienceSection: React.FC = () => {
                         <div className="px-6 pb-6 border-t border-border pt-4">
                           <ul className="space-y-3 mb-5">
                             {exp.description.map((item, i) => (
-                              <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                              <li
+                                key={i}
+                                className="flex gap-3 text-sm text-muted-foreground leading-relaxed"
+                              >
                                 <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                                 <span>{item}</span>
                               </li>
                             ))}
                           </ul>
                           <div>
-                            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Technologies Used</h4>
+                            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                              Technologies Used
+                            </h4>
                             <div className="flex flex-wrap gap-2">
                               {exp.technologies.map((tech, i) => (
                                 <span
@@ -196,8 +254,12 @@ const ExperienceSection: React.FC = () => {
           <div className="p-6 rounded-2xl border border-border bg-card">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div>
-                <h4 className="text-lg font-semibold text-foreground">Ambrose Alli University</h4>
-                <p className="text-muted-foreground text-sm">Bachelors of Science (Human Physiology) </p>
+                <h4 className="text-lg font-semibold text-foreground">
+                  Ambrose Alli University
+                </h4>
+                <p className="text-muted-foreground text-sm">
+                  Bachelors of Science (Human Physiology){" "}
+                </p>
               </div>
               <div className="text-sm text-muted-foreground flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
